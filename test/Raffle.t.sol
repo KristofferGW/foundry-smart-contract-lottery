@@ -9,6 +9,6 @@ contract RaffleTest is Test {
     uint256 public ENTRANCE_FEE = 10;
 
     function setUp() public {
-        raffle = new Raffle(ENTRANCE_FEE);
+        // raffle = new Raffle(ENTRANCE_FEE);
     }
 }
