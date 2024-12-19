@@ -1,0 +1,183 @@
+No files changed, compilation skipped
+
+Ran 7 tests for test/unit/RaffleTest.t.sol:RaffleTest
+[PASS] testCheckUpKeepReturnsFalseIfItHasNoBalance() (gas: 18854)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [18854] RaffleTest::testCheckUpKeepReturnsFalseIfItHasNoBalance()
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [7533] Raffle::checkUpkeep(0x) [staticcall]
+    │   └─ ← [Return] false, 0x
+    └─ ← [Stop] 
+
+[PASS] testCheckUpkeepReturnsFalseIfRaffleIsntOpen() (gas: 217740)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [217740] RaffleTest::testCheckUpkeepReturnsFalseIfRaffleIsntOpen()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47804] Raffle::enterRaffle{value: 10000000000000000}()
+    │   ├─ emit RaffleEntered(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [144719] Raffle::performUpkeep()
+    │   ├─ [115645] VRFCoordinatorV2_5Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 97767009708314305665643641779529925837712974602641641141825456487478243071475 [9.776e76], requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   ├─ emit RandomWordsRequested(keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, requestId: 1, preSeed: 100, subId: 97767009708314305665643641779529925837712974602641641141825456487478243071475 [9.776e76], minimumRequestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000, sender: Raffle: [0x50EEf481cae4250d252Ae577A09bF514f224C6C4])
+    │   │   └─ ← [Return] 1
+    │   └─ ← [Stop] 
+    ├─ [1528] Raffle::checkUpkeep(0x) [staticcall]
+    │   └─ ← [Return] false, 0x
+    └─ ← [Stop] 
+
+[PASS] testDontAllowPlayersToEnterWhileRaffleIsCalculating() (gas: 223951)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [223951] RaffleTest::testDontAllowPlayersToEnterWhileRaffleIsCalculating()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47804] Raffle::enterRaffle{value: 10000000000000000}()
+    │   ├─ emit RaffleEntered(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [144719] Raffle::performUpkeep()
+    │   ├─ [115645] VRFCoordinatorV2_5Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 97767009708314305665643641779529925837712974602641641141825456487478243071475 [9.776e76], requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   ├─ emit RandomWordsRequested(keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, requestId: 1, preSeed: 100, subId: 97767009708314305665643641779529925837712974602641641141825456487478243071475 [9.776e76], minimumRequestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000, sender: Raffle: [0x50EEf481cae4250d252Ae577A09bF514f224C6C4])
+    │   │   └─ ← [Return] 1
+    │   └─ ← [Stop] 
+    ├─ [0] VM::expectRevert(Raffle__RaffleNotOpen())
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [425] Raffle::enterRaffle{value: 10000000000000000}()
+    │   └─ ← [Revert] Raffle__RaffleNotOpen()
+    └─ ← [Stop] 
+
+[PASS] testEnteringRaffleEmitsEvent() (gas: 68730)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [68730] RaffleTest::testEnteringRaffleEmitsEvent()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectEmit(true, false, false, false, Raffle: [0x50EEf481cae4250d252Ae577A09bF514f224C6C4])
+    │   └─ ← [Return] 
+    ├─ emit RaffleEntered(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    ├─ [47804] Raffle::enterRaffle{value: 10000000000000000}()
+    │   ├─ emit RaffleEntered(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    └─ ← [Stop] 
+
+[PASS] testRaffleInitializesInOpenState() (gas: 7751)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [7751] RaffleTest::testRaffleInitializesInOpenState()
+    ├─ [2373] Raffle::getRaffleState() [staticcall]
+    │   └─ ← [Return] 0
+    └─ ← [Stop] 
+
+[PASS] testRaffleRecordsPlayersWehnTheyEnter() (gas: 68273)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [68273] RaffleTest::testRaffleRecordsPlayersWehnTheyEnter()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47804] Raffle::enterRaffle{value: 10000000000000000}()
+    │   ├─ emit RaffleEntered(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [707] Raffle::getPlayer(0) [staticcall]
+    │   └─ ← [Return] player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C]
+    └─ ← [Stop] 
+
+[PASS] testRaffleRevertsWhenYouDontPayEnough() (gas: 10917)
+Logs:
+  Creating subscription on chain Id: 31337
+  Your subscription Id is:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Please update the subscription Id in your HelperConfig.s.sol
+  Funding subscription:  97767009708314305665643641779529925837712974602641641141825456487478243071475
+  Using vrfCoordingaro:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+  Adding consumer to VRF Coordinator:  0x50EEf481cae4250d252Ae577A09bF514f224C6C4
+  To vrfCoordinator:  0x90193C961A926261B756D1E5bb255e67ff9498A1
+  On ChainId:  31337
+
+Traces:
+  [10917] RaffleTest::testRaffleRevertsWhenYouDontPayEnough()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(Raffle__SendMoreToEnterRaffle())
+    │   └─ ← [Return] 
+    ├─ [253] Raffle::enterRaffle()
+    │   └─ ← [Revert] Raffle__SendMoreToEnterRaffle()
+    └─ ← [Stop] 
+
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 3.65ms (791.58µs CPU time)
+
+Ran 1 test suite in 21.91ms (3.65ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)
